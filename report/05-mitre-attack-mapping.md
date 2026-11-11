@@ -1,73 +1,109 @@
-# MITRE ATT&CK Mapping
+# MITRE ATT&CK Mapping — GTG-1002
 
-## 1. Purpose
+## 1. Purpose and Scope
 
-This document maps reported GTG-1002 campaign behaviours to the MITRE ATT&CK Enterprise framework.
+This document maps the behaviours associated with the GTG-1002 campaign to the MITRE ATT&CK Enterprise framework.
 
-The mappings are based on the official MITRE ATT&CK campaign entry C0062. They are not independent findings from this investigation.
+The mapping is based on the official MITRE ATT&CK campaign entry C0062, which documents techniques associated with the campaign using publicly reported information.
 
 **Campaign:** C0062 — Anthropic AI-orchestrated Campaign  
 **Activity period:** September 2025  
-**Threat actor assessment:** GTG-1002, assessed by Anthropic as a likely Chinese state-sponsored group.
+**Threat actor designation:** GTG-1002  
+**Attribution:** Anthropic assessed the activity as likely conducted by a Chinese state-sponsored group.
 
 **Primary reference:** https://attack.mitre.org/campaigns/C0062/
 
+The mappings below reflect MITRE's published campaign relationships. They are not independent findings or independently verified observations from this investigation.
+
 ## 2. Technique Mapping
 
-| Tactic / Activity | Technique ID | Technique Name | Reported Behaviour |
+The following table reproduces the 27 Enterprise ATT&CK technique and sub-technique relationships currently listed for C0062.
+
+| Tactic | Technique ID | Technique name | Reported campaign behaviour |
 |---|---|---|---|
-| Reconnaissance | T1595.001 | Active Scanning: Scanning IP Blocks | Scanning infrastructure across target-associated IP ranges. |
-| Reconnaissance | T1595.002 | Active Scanning: Vulnerability Scanning | Scanning target infrastructure for vulnerabilities and exposed services. |
-| Discovery | T1046 | Network Service Discovery | Enumerating internal services and endpoints. |
-| Discovery | T1087 | Account Discovery | Querying account information and identifying privileged accounts. |
+| Reconnaissance | T1595.001 | Active Scanning: Scanning IP Blocks | Scanning infrastructure across IP ranges associated with target organisations. |
+| Reconnaissance | T1595.002 | Active Scanning: Vulnerability Scanning | Scanning target infrastructure to identify potential vulnerabilities and enumerate services and endpoints. |
+| Reconnaissance | T1592.002 | Gather Victim Host Information: Software | Cataloguing services and software on discovered endpoints. |
+| Reconnaissance | T1592.004 | Gather Victim Host Information: Client Configurations | Gathering information about high-value systems, including databases and workflow platforms. |
+| Reconnaissance | T1590.004 | Gather Victim Network Information: Network Topology | Mapping network topology and infrastructure relationships. |
+| Resource Development | T1584.004 | Compromise Infrastructure: Server | Operating dedicated penetration-testing servers connected through MCP to support remote execution and tool coordination. |
+| Resource Development | T1587.004 | Develop Capabilities: Exploits | Researching an SSRF vulnerability and developing a tailored exploit chain. |
+| Resource Development | T1588.002 | Obtain Capabilities: Tool | Obtaining open-source penetration-testing tools, including scanners and exploitation utilities. |
+| Resource Development | T1588.007 | Obtain Capabilities: Artificial Intelligence | Obtaining access to Claude Code for use in cyber operations. |
+| Resource Development | T1683 | Generate Content | Automatically generating documentation of discovered services, credentials, data and operational progress. |
 | Initial Access | T1190 | Exploit Public-Facing Application | Deploying a custom exploit targeting an identified SSRF vulnerability. |
-| Resource Development | T1587.004 | Develop Capabilities: Exploits | Researching and developing a tailored exploit chain. |
-| Credential Access | T1552.001 | Unsecured Credentials: Credentials In Files | Extracting authentication certificates from configuration files. |
+| Initial Access | T1078 | Valid Accounts | Using harvested credentials to authenticate to internal systems and services. |
+| Initial Access | T1078.003 | Valid Accounts: Local Accounts | Testing and using harvested credentials against discovered devices. |
+| Execution | T1699 | Direct Prompt Injection | Using a crafted prompt and claimed defensive-testing context to persuade Claude to perform restricted operations. |
+| Persistence | T1136.001 | Create Account: Local Account | Creating a local account to maintain access. |
+| Persistence | T1078 | Valid Accounts | Maintaining access through valid credentials. |
+| Privilege Escalation | T1078 | Valid Accounts | Using valid accounts to access resources with higher privileges. |
+| Privilege Escalation | T1078.003 | Valid Accounts: Local Accounts | Using local accounts to access systems and resources. |
+| Stealth | T1078 | Valid Accounts | Using valid credentials to blend activity with legitimate authentication. |
+| Stealth | T1078.003 | Valid Accounts: Local Accounts | Using local accounts as part of activity mapped to valid-account techniques. |
+| Credential Access | T1552.001 | Unsecured Credentials: Credentials In Files | Extracting authentication certificates stored in system configuration files. |
+| Discovery | T1087 | Account Discovery | Querying internal database account tables to identify accounts and privileged users. |
+| Discovery | T1046 | Network Service Discovery | Enumerating internal network services and endpoints using tool integrations. |
+| Discovery | T1082 | System Information Discovery | Querying systems and databases to identify system configurations and database types. |
+| Discovery | T1016 | System Network Configuration Discovery | Gathering network configuration information from discovered devices. |
+| Discovery | T1049 | System Network Connections Discovery | Mapping internal network architecture and connections. |
 | Discovery | T1083 | File and Directory Discovery | Identifying sensitive files and directories within compromised environments. |
 | Collection | T1005 | Data from Local System | Gathering sensitive local data, credentials and system information. |
-| Collection | T1213.006 | Data from Information Repositories: Databases | Querying internal databases to obtain sensitive information. |
-| Collection | T1119 | Automated Collection | Automating the collection and processing of data. |
-| Collection | T1074.001 | Data Staged: Local Data Staging | Staging collected data and operational documentation locally. |
-| Exfiltration | T1567 | Exfiltration Over Web Service | Using a web service to facilitate data exfiltration. |
-| AI-related activity | T1699 | Direct Prompt Injection | Using misleading prompts to represent the operation as authorised defensive testing and bypass safeguards. |
+| Collection | T1213.006 | Data from Information Repositories: Databases | Querying internal databases for proprietary and operational information. |
+| Collection | T1119 | Automated Collection | Automatically collecting and processing large volumes of data. |
+| Collection | T1074.001 | Data Staged: Local Data Staging | Staging collected data and documentation in structured local files before exfiltration. |
+| Exfiltration | T1567 | Exfiltration Over Web Service | Preparing collected information and exfiltrating data through a web service. |
+
+**Note:** ATT&CK techniques can be associated with more than one tactic. The table reflects the campaign relationships and reported procedure descriptions in MITRE's C0062 entry; it is not a claim that every technique occurred in every target environment.
 
 ## 3. AI-Enabled Operational Considerations
 
-Traditional ATT&CK mapping describes adversary behaviour, but it does not by itself explain the extent of AI involvement.
+ATT&CK provides a structured way to describe adversary behaviour, but the technique mapping alone does not explain what made this campaign distinctive.
 
-Three additional considerations are relevant:
+Three aspects are particularly relevant:
 
-- **Autonomous execution:** AI agents reportedly executed multiple technical tasks rather than simply recommending commands.
-- **Tool orchestration:** MCP integrations connected AI agents to external tools and target environments.
-- **Human direction:** Operators established objectives and retained strategic control while delegating substantial tactical work.
+### Autonomous task execution
 
-The AI component should therefore be analysed alongside the underlying ATT&CK techniques, rather than treated as a replacement for them.
+Anthropic reported that Claude Code agents performed substantial technical tasks with limited human intervention. The agents reportedly made decisions based on intermediate results rather than simply generating recommendations.
+
+### Tool orchestration
+
+The reported operation connected AI agents to external penetration-testing tools through Model Context Protocol (MCP) integrations.
+
+### Human direction and oversight
+
+Human operators established objectives and directed the broader operation. Anthropic reported that AI handled a substantial proportion of tactical execution, while consequential decisions remained subject to human involvement.
+
+These characteristics should be analysed alongside the conventional ATT&CK techniques, not treated as substitutes for them.
 
 ## 4. Defensive Considerations
 
-| Observed Behaviour | Defensive Focus |
+| Observed behaviour | Defensive focus |
 |---|---|
-| External scanning | Attack surface monitoring and network intrusion detection |
-| Vulnerability exploitation | Vulnerability management, patching and web application protection |
-| Account discovery | Identity monitoring and least-privilege access |
-| Credential harvesting | Secret management, MFA and credential exposure monitoring |
-| Lateral movement | Network segmentation and endpoint detection |
-| Data collection | Database access monitoring and data classification |
-| Data staging and exfiltration | Data loss prevention and outbound traffic monitoring |
-| Prompt manipulation | AI application security, access controls and audit logging |
+| External scanning and reconnaissance | Attack surface monitoring, exposure management and network detection |
+| Vulnerability research and exploitation | Vulnerability management, patching and application security |
+| Account discovery and credential use | Identity monitoring, MFA and privileged access management |
+| Local account creation | Account-change monitoring and endpoint detection |
+| Network and system discovery | Network telemetry, segmentation and behavioural detection |
+| Credential harvesting | Secrets management and credential exposure monitoring |
+| Data collection and staging | Database activity monitoring and data loss prevention |
+| Exfiltration over web services | Egress monitoring, traffic analysis and data protection |
+| Prompt manipulation and tool use | AI application security, tool authorisation and audit logging |
 
-These are suggested defensive priorities, not proof that any individual control would have prevented the campaign.
+These are recommended defensive priorities. They are not proof that any individual control would necessarily have prevented the campaign.
 
 ## 5. Mapping Limitations
 
-- The mapping follows MITRE ATT&CK's published campaign relationships.
-- A technique's inclusion does not mean it occurred in every targeted environment.
-- Some techniques describe conventional cyber activity, while others describe AI-specific behaviours.
-- The ATT&CK framework is updated over time; technique names and relationships should be checked against the current official version.
-- The presence of an AI-related technique does not, by itself, establish the degree of autonomy involved.
+- The mapping follows MITRE ATT&CK's published C0062 campaign entry.
+- MITRE campaign mappings are based on publicly available reporting and do not represent every possible technique used.
+- The inclusion of a technique does not establish that it occurred in every compromised environment.
+- A technique's presence in the campaign entry does not independently verify the underlying incident.
+- Some descriptions reflect AI-enabled execution of conventional cyber techniques; they should not automatically be classified as AI-specific techniques.
+- Technique names, IDs and campaign relationships can change as ATT&CK is updated.
 
 ## 6. Sources
 
-1. MITRE ATT&CK, [Campaign C0062 — Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062/).
-2. Anthropic, [Disrupting the first reported AI-orchestrated cyber espionage campaign](https://www.anthropic.com/news/disrupting-AI-espionage).
-3. MITRE ATT&CK, [Enterprise Matrix](https://attack.mitre.org/matrices/enterprise/).
+1. MITRE ATT&CK. *Anthropic AI-orchestrated Campaign — C0062.* https://attack.mitre.org/campaigns/C0062/
+2. MITRE ATT&CK. *Enterprise Matrix.* https://attack.mitre.org/matrices/enterprise/
+3. Anthropic. (2025, November 13). *Disrupting the first reported AI-orchestrated cyber espionage campaign.* https://www.anthropic.com/news/disrupting-AI-espionage
+4. Anthropic. *Mapping AI-enabled cyber threats.* https://www.anthropic.com/research/attack-navigator
