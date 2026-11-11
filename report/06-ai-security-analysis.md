@@ -143,5 +143,4 @@ The findings are based primarily on Anthropic's reporting. Independent verificat
 2. Anthropic, *Mapping AI-enabled cyber threats*, https://www.anthropic.com/research/attack-navigator
 3. MITRE ATLAS, https://atlas.mitre.org/
 4. MITRE ATT&CK, https://attack.mitre.org/campaigns/C0062/
-5. MITRE D3FEND, *AI Agent Tool Invocation (AML.T0053)*, https://d3fend.mitre.org/offensive-technique/attack/AML.T0053/
-6. MITRE D3FEND, *Deploy AI Agent (AML.T0103)*, https://d3fend.mitre.org/offensive-technique/attack/AML.T0103/
+5. MITRE ATLAS, *AI Agent Tool Invocation (AML.T0053)* and *Deploy AI Agent (AML.T0103)*, https://atlas.mitre.org/
