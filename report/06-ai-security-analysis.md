@@ -56,15 +56,15 @@ AI was reportedly used to research vulnerabilities, generate code and assist wit
 
 ### 3.5 Automated Data Processing
 
-AI agents reportedly helped identify, collect, categorise and document information.
+AI agents reportedly helped identify, collect, categorise and document information. Anthropic's subsequent analysis also describes the staging and compression of collected material before final extraction.
 
-**Security implication:** Automated processing can increase the volume of data an attacker can handle. Monitoring should therefore consider unusual access patterns and data movement, not only manual user activity.
+**Security implication:** Automated processing can increase the volume of data an attacker can handle. Monitoring should consider unusual access patterns, staging activity and outbound data movement, not only manual user activity.
 
 ## 4. Human Oversight and Control
 
 The campaign demonstrates that AI autonomy and human control are not mutually exclusive.
 
-According to Anthropic, human operators established the strategic objectives and retained oversight while AI agents performed a substantial proportion of tactical tasks.
+According to Anthropic, human operators established the strategic objectives and retained oversight while AI agents performed a substantial proportion of tactical tasks. Anthropic's subsequent analysis states that the final data extraction was human-directed.
 
 This raises several questions:
 
@@ -107,28 +107,25 @@ Independent validation is therefore essential before acting on AI-generated inte
 
 ## 7. MITRE ATLAS Relevance
 
-MITRE ATLAS provides a complementary framework for analysing adversarial techniques involving AI-enabled systems. While MITRE ATT&CK describes conventional enterprise intrusion behaviours, ATLAS helps examine how AI systems and agent capabilities may be manipulated or abused.
+MITRE ATLAS is a knowledge base for adversarial tactics and techniques involving AI-enabled systems. It provides useful terminology for examining the security implications of the agent architecture described in the GTG-1002 reporting.
 
-The following ATLAS techniques are relevant analytical references for understanding the reported GTG-1002 activity.
+The following techniques are discussed as **contextual analytical references**, not as a formal MITRE ATLAS mapping of campaign C0062:
 
-| ATLAS Technique ID | Technique | Relevance to the campaign |
+| ATLAS Technique ID | Technique | Analytical relevance and limitation |
 |---|---|---|
-| AML.T0053 | AI Agent Tool Invocation | Relevant to the reported use of MCP-connected tools by AI agents to interact with external resources and execute technical tasks. |
-| AML.T0103 | Deploy AI Agent | Relevant to the reported deployment and coordination of specialised AI agents to perform operational tasks. |
-| AML.T0051 | LLM Prompt Injection | Relevant to the reported manipulation of the AI model through crafted instructions and prompts. |
-| AML.T0065 | LLM Prompt Crafting | Relevant to the use of crafted prompts intended to influence model behaviour and obtain operational outputs. |
+| AML.T0053 | AI Agent Tool Invocation | Closely relevant to the reported use of MCP-connected tools by agents. This is a conceptual comparison to the reported tool use, not a claim that ATLAS has formally mapped the campaign to this technique. |
+| AML.T0051 | LLM Prompt Injection | Relevant to the broader risk of malicious instructions influencing model behaviour. Anthropic reports crafted prompts and personas used to bypass guardrails; this project does not claim a formal ATLAS campaign mapping. |
+| AML.T0065 | LLM Prompt Crafting | Relevant as a framework concept for crafted prompts. It should not be read as independent evidence of a distinct campaign technique. |
+| AML.T0103 | Deploy AI Agent | A useful comparison for considering agents launched in a victim environment. The available campaign reporting describes agents operating through an attacker-controlled framework, so this technique is not asserted as a direct match. |
 
-### Mapping limitations
+### Framework distinction
 
-These techniques provide an analytical lens, not proof that every technique was independently observed or formally mapped to the campaign by MITRE ATLAS.
+MITRE ATT&CK campaign C0062 currently lists 26 technique and sub-technique IDs. It does **not** list T1699 — Direct Prompt Injection. Do not conflate ATT&CK and ATLAS identifiers or infer that a technique is part of C0062 simply because it is relevant to AI security.
 
-The MITRE ATT&CK campaign entry C0062 separately identifies T1699 — Direct Prompt Injection. This is an ATT&CK technique, not an ATLAS technique, and the two frameworks should not be conflated.
+Autonomous Attack Orchestration is also a useful broader ATLAS concept for discussing agentic operations, but it is not presented here as a confirmed campaign-specific mapping.
 
-Autonomous Attack Orchestration is another relevant ATLAS concept for understanding AI-enabled operations. However, it is treated here as a broader analytical concept rather than a confirmed campaign-specific technique mapping.
-
-**Official framework:** https://atlas.mitre.org/
-
-**Campaign mapping:** https://attack.mitre.org/campaigns/C0062/
+**Official framework:** https://atlas.mitre.org/  
+**ATT&CK campaign:** https://attack.mitre.org/campaigns/C0062/
 
 ## 8. Intelligence Assessment
 
@@ -143,5 +140,8 @@ The findings are based primarily on Anthropic's reporting. Independent verificat
 ## 9. Sources
 
 1. Anthropic, https://www.anthropic.com/news/disrupting-AI-espionage
-2. MITRE ATLAS, https://atlas.mitre.org/
-3. MITRE ATT&CK, https://attack.mitre.org/campaigns/C0062/
+2. Anthropic, *Mapping AI-enabled cyber threats*, https://www.anthropic.com/research/attack-navigator
+3. MITRE ATLAS, https://atlas.mitre.org/
+4. MITRE ATT&CK, https://attack.mitre.org/campaigns/C0062/
+5. MITRE D3FEND, *AI Agent Tool Invocation (AML.T0053)*, https://d3fend.mitre.org/offensive-technique/attack/AML.T0053/
+6. MITRE D3FEND, *Deploy AI Agent (AML.T0103)*, https://d3fend.mitre.org/offensive-technique/attack/AML.T0103/
