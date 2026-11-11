@@ -25,7 +25,7 @@ It distinguishes confidence that a source made a particular statement from confi
 | AI supported reconnaissance, vulnerability research, exploitation and data collection. | E-005 | Medium | Multiple operational activities are described in the primary reporting, but independent corroboration remains limited. |
 | Human operators retained strategic oversight. | E-004 | Medium | Reported by Anthropic; the precise boundaries of human intervention are not independently established. |
 | AI-generated outputs included inaccurate or fabricated information. | E-001, E-005 | Medium | Reported examples illustrate reliability problems, but the full frequency and impact are unknown. |
-| MITRE ATT&CK lists 26 technique and sub-technique IDs for campaign C0062. | E-002 | High — confidence in the current framework entry | Directly checked against the live MITRE campaign page on 11 November 2026. This confirms the contents of the framework entry, not independent verification of the underlying campaign activity. |
+| MITRE ATT&CK associates 27 technique and sub-technique IDs with campaign C0062, including T1699 Direct Prompt Injection. | E-002, E-006 | High — confidence in the current framework entries | Checked against the current MITRE campaign and T1699 technique pages on 11 November 2026. This confirms the contents of the framework entries, not independent verification of the underlying campaign activity. |
 
 ## 4. Intelligence Gaps
 
