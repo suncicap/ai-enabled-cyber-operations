@@ -24,6 +24,12 @@ Detailed technical report accompanying the public disclosure. Used to examine th
 
 https://attack.mitre.org/campaigns/C0062/
 
+**MITRE.** *Direct Prompt Injection (T1699).* 
+
+https://attack.mitre.org/techniques/T1699/
+
+The technique page includes a procedure example explicitly associated with campaign C0062.
+
 Used as a structured reference for the campaign's documented adversary behaviour and its relationship to the MITRE ATT&CK knowledge base.
 
 **MITRE.** *MITRE ATT&CK.*
