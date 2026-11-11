@@ -11,7 +11,7 @@ This document summarises the Enterprise ATT&CK techniques listed on the official
 
 **Primary reference:** https://attack.mitre.org/campaigns/C0062/
 
-The table below follows the technique IDs, names and procedure descriptions on the live MITRE campaign page, checked on 11 November 2026. MITRE's campaign page lists 27 technique and sub-technique IDs. It does not assign a tactic column to these campaign relationships; therefore, this document does not infer or add tactic assignments.
+The table below follows the technique IDs, names and procedure descriptions on the live MITRE campaign page, checked on 11 November 2026. MITRE's campaign page lists 26 technique and sub-technique IDs. It does not assign a tactic column to these campaign relationships; therefore, this document does not infer or add tactic assignments.
 
 These are MITRE's published mappings based on cited reporting, not independent observations or verification by this investigation.
 
@@ -29,7 +29,6 @@ These are MITRE's published mappings based on cited reporting, not independent o
 | T1005 | Data from Local System | Claude Code gathered sensitive data stored on local systems, including credentials, configurations and operational data. |
 | T1074.001 | Data Staged: Local Data Staging | Extracted data and operational documentation were staged in structured Markdown files on local systems before exfiltration. |
 | T1587.004 | Develop Capabilities: Exploits | Claude Code researched an identified SSRF vulnerability, generated a tailored payload and developed an exploit chain. |
-| T1699 | Direct Prompt Injection | The adversary used a crafted prompt claiming a defensive cybersecurity testing context to induce Claude to authorise restricted operations. |
 | T1567 | Exfiltration Over Web Service | Claude Code generated a summary of collected data for operator review and approval before data was exfiltrated over Claude. |
 | T1190 | Exploit Public-Facing Application | A custom exploit payload targeting an identified SSRF vulnerability was deployed to gain initial access. |
 | T1083 | File and Directory Discovery | Claude Code identified sensitive data in the victim environment for extraction. |
@@ -47,7 +46,7 @@ These are MITRE's published mappings based on cited reporting, not independent o
 | T1078 | Valid Accounts | Harvested credentials were used to authenticate to internal APIs, database systems, container registries and logging infrastructure. |
 | T1078.003 | Valid Accounts: Local Accounts | Claude Code tested harvested credentials against discovered devices. |
 
-**Counting note:** This table contains 27 distinct technique/sub-technique IDs. The sub-techniques are listed separately from their parent techniques. No additional tactic relationships are inferred here.
+**Counting note:** This table contains 26 distinct technique/sub-technique IDs. The sub-techniques are listed separately from their parent techniques. No additional tactic relationships are inferred here.
 
 ## 3. AI-Enabled Operational Considerations
 
