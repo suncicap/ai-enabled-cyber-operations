@@ -2,11 +2,13 @@
 
 ## 1. Overview
 
-This document reconstructs the operational lifecycle described in Anthropic's November 2025 report on the GTG-1002 campaign.
+This document analyses the operational sequence described in Anthropic's November 2025 reporting on the GTG-1002 campaign, supplemented by Anthropic's subsequent analysis.
 
-The reported operation involved human-directed objectives supported by AI agents performing a range of tactical tasks. The analysis distinguishes the reported activity from its interpretation and avoids assuming that every technique was used against every target.
+The reported operation involved human-directed objectives supported by AI agents performing a range of tactical tasks. The analysis distinguishes reported activity from interpretation and avoids assuming that every technique was used against every target.
 
-**Primary source:** [Anthropic — Disrupting the first reported AI-orchestrated cyber espionage campaign](https://www.anthropic.com/news/disrupting-AI-espionage)
+**Primary sources:**
+- [Anthropic — Disrupting the first reported AI-orchestrated cyber espionage campaign](https://www.anthropic.com/news/disrupting-AI-espionage)
+- [Anthropic — Mapping AI-enabled cyber threats](https://www.anthropic.com/research/attack-navigator)
 
 ## 2. Operational Phases
 
@@ -28,7 +30,7 @@ AI agents were reportedly used to investigate target environments, identify syst
 
 ### Phase 3 — Vulnerability Research and Exploitation
 
-The report describes AI-assisted vulnerability research and the generation of exploit code as part of the operation.
+The report describes AI-assisted vulnerability research, generation of exploit code and exploitation of an identified SSRF vulnerability as part of the operation.
 
 **Analytical significance:** AI can help translate technical findings into operational actions. This creates additional defensive challenges around vulnerability exposure, exploitation detection and automated activity.
 
@@ -50,21 +52,37 @@ Anthropic describes the use of AI agents to support movement across target envir
 
 **Evidence:** E-003, E-005
 
-### Phase 6 — Data Collection and Exfiltration
+### Phase 6 — Data Discovery and Collection
 
-The report describes the identification, collection, categorisation and extraction of data from target environments.
+The reporting describes identifying and collecting sensitive information from target environments, including proprietary records and operational information.
 
-**Analytical significance:** Automated data processing can increase the scale and speed of collection. Monitoring unusual access patterns, data staging and outbound transfers is therefore important.
+**Analytical significance:** Automated data processing can increase the scale and speed of collection. Monitoring unusual access patterns and bulk data access is therefore important.
 
 **Evidence:** E-003, E-005
 
-### Phase 7 — Human Oversight and Operational Coordination
+### Phase 7 — Data Staging and Preparation
 
-Human operators reportedly retained strategic oversight while AI agents handled a substantial proportion of tactical activity. The report also identifies limitations, including instances of fabricated or inaccurate AI output.
+Anthropic's subsequent analysis describes agents staging and compressing collected material before exfiltration. MITRE's C0062 entry also records local data staging in structured Markdown files.
+
+**Analytical significance:** Collection and exfiltration are distinct stages. Monitoring should include local staging locations, unusual archive creation, compression and movement of aggregated data.
+
+**Evidence:** E-002, E-003, E-005
+
+### Phase 8 — Final Data Extraction
+
+Anthropic's subsequent analysis states that the final data extraction — downloading the staged material to the operator's machine through curl MCP tool calls — was human-directed.
+
+**Analytical significance:** The operation combined extensive agent-assisted activity with human direction at a consequential decision point. Describing the entire process as fully autonomous would overstate the reporting.
+
+**Evidence:** E-003, E-005
+
+### Phase 9 — Documentation and Operational Coordination
+
+Anthropic and MITRE describe agents generating documentation of discovered services, credentials, data and operational progress. Human operators retained strategic direction and oversight. Anthropic also reported limitations, including inaccurate or fabricated AI output.
 
 **Analytical significance:** AI-generated results require validation. Human oversight, tool restrictions, logging and clear authorisation boundaries remain essential.
 
-**Evidence:** E-004
+**Evidence:** E-002, E-004, E-005
 
 ## 3. Cross-Phase Observations
 
@@ -84,20 +102,23 @@ The reported campaign illustrates several broader security considerations:
 | Vulnerability research and exploitation | Vulnerability management, patching and exploit detection |
 | Credential access | MFA, identity monitoring and privileged access management |
 | Lateral movement | Network segmentation and endpoint detection |
-| Data collection and exfiltration | Data loss prevention and unusual data-transfer monitoring |
+| Data discovery and collection | Database activity monitoring and unusual bulk-access detection |
+| Data staging and preparation | Monitoring of staging locations, archive creation and compression |
+| Final extraction | Egress monitoring, data-loss prevention and human approval for high-impact transfers |
 | AI agent coordination | Tool permissions, audit logging, isolation and human approval controls |
 
 These are initial defensive considerations, not confirmed controls that would necessarily have prevented the reported campaign.
 
 ## 5. Limitations and Confidence
 
-This lifecycle is based primarily on Anthropic's public reporting. The investigation has not independently accessed the underlying target telemetry, malware, infrastructure or complete operational logs.
+This lifecycle is based primarily on Anthropic's public reporting, with MITRE ATT&CK providing a structured representation of reported behaviours. The investigation has not independently accessed the underlying target telemetry, malware, infrastructure or complete operational logs.
 
-The sequence is an analytical representation of the reported activity. Individual phases may have overlapped, varied between targets or been absent in particular intrusions.
+The sequence is an analytical representation of reported activity. Individual phases may have overlapped, varied between targets or been absent in particular intrusions.
 
-Further validation and technique-level mapping are required before drawing stronger conclusions.
+Anthropic's later analysis adds detail about staging, compression and the human-directed final extraction. Those details should be attributed to Anthropic's subsequent analysis, rather than presented as independent findings from this project.
 
 ## 6. Sources
 
 1. Anthropic, [Disrupting the first reported AI-orchestrated cyber espionage campaign](https://www.anthropic.com/news/disrupting-AI-espionage).
-2. MITRE ATT&CK, [Campaign C0062](https://attack.mitre.org/campaigns/C0062/).
+2. Anthropic, [Mapping AI-enabled cyber threats](https://www.anthropic.com/research/attack-navigator).
+3. MITRE ATT&CK, [Campaign C0062](https://attack.mitre.org/campaigns/C0062/).
