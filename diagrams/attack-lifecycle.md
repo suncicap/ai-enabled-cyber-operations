@@ -20,7 +20,9 @@ flowchart TD
     H["8. Human-directed final extraction<br/>The final data download is directed by human operators"]
     I["Ongoing documentation and operational reporting<br/>Agents record findings, credentials and activity throughout the operation"]
 
-    A --> B --> C --> D --> E --> F --> G --> H\n\n    B -.-> I\n    C -.-> I\n    D -.-> I\n    E -.-> I\n    F -.-> I\n    G -.-> I\n    H -.-> I
+    A --> B --> C --> D --> E --> F --> G --> H
+
+    B -.-> I\n    C -.-> I\n    D -.-> I\n    E -.-> I\n    F -.-> I\n    G -.-> I\n    H -.-> I
 
     B -.-> J["AI agents use MCP-connected tools<br/>to execute tasks and assess results"]
     C -.-> J
