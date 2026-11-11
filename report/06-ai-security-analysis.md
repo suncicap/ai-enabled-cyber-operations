@@ -107,19 +107,28 @@ Independent validation is therefore essential before acting on AI-generated inte
 
 ## 7. MITRE ATLAS Relevance
 
-MITRE ATLAS provides a complementary framework for analysing threats involving AI systems.
+MITRE ATLAS provides a complementary framework for analysing adversarial techniques involving AI-enabled systems. While MITRE ATT&CK describes conventional enterprise intrusion behaviours, ATLAS helps examine how AI systems and agent capabilities may be manipulated or abused.
 
-Potentially relevant areas for further investigation include:
+The following ATLAS techniques are relevant analytical references for understanding the reported GTG-1002 activity.
 
-- AI Agent Tool Invocation.
-- Deploy AI Agent.
-- LLM Prompt Injection.
-- LLM Prompt Crafting.
-- Autonomous Attack Orchestration.
+| ATLAS Technique ID | Technique | Relevance to the campaign |
+|---|---|---|
+| AML.T0053 | AI Agent Tool Invocation | Relevant to the reported use of MCP-connected tools by AI agents to interact with external resources and execute technical tasks. |
+| AML.T0103 | Deploy AI Agent | Relevant to the reported deployment and coordination of specialised AI agents to perform operational tasks. |
+| AML.T0051 | LLM Prompt Injection | Relevant to the reported manipulation of the AI model through crafted instructions and prompts. |
+| AML.T0065 | LLM Prompt Crafting | Relevant to the use of crafted prompts intended to influence model behaviour and obtain operational outputs. |
 
-These techniques should be mapped to specific campaign behaviours only where the source evidence supports the relationship. Their presence in the framework alone does not establish that GTG-1002 used them.
+### Mapping limitations
 
-Official framework: https://atlas.mitre.org/
+These techniques provide an analytical lens, not proof that every technique was independently observed or formally mapped to the campaign by MITRE ATLAS.
+
+The MITRE ATT&CK campaign entry C0062 separately identifies T1699 — Direct Prompt Injection. This is an ATT&CK technique, not an ATLAS technique, and the two frameworks should not be conflated.
+
+Autonomous Attack Orchestration is another relevant ATLAS concept for understanding AI-enabled operations. However, it is treated here as a broader analytical concept rather than a confirmed campaign-specific technique mapping.
+
+**Official framework:** https://atlas.mitre.org/
+
+**Campaign mapping:** https://attack.mitre.org/campaigns/C0062/
 
 ## 8. Intelligence Assessment
 
