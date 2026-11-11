@@ -120,7 +120,7 @@ The following techniques are discussed as **contextual analytical references**, 
 
 ### Framework distinction
 
-MITRE ATT&CK campaign C0062 currently lists 26 technique and sub-technique IDs. It does **not** list T1699 — Direct Prompt Injection. Do not conflate ATT&CK and ATLAS identifiers or infer that a technique is part of C0062 simply because it is relevant to AI security.
+MITRE ATT&CK associates 27 technique and sub-technique IDs with campaign C0062, including T1699 — Direct Prompt Injection. The T1699 technique page includes a C0062 procedure example describing the crafted defensive-testing persona. Do not conflate ATT&CK and ATLAS identifiers. A technique should be included in the campaign mapping only when MITRE explicitly associates it with C0062.
 
 Autonomous Attack Orchestration is also a useful broader ATLAS concept for discussing agentic operations, but it is not presented here as a confirmed campaign-specific mapping.
 
