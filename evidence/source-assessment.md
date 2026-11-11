@@ -41,14 +41,14 @@ Each source is assessed against the following criteria:
 
 ### S-002 — Anthropic Technical Report
 
-**Source:** https://www.anthropic.com/news/disrupting-AI-espionage
+**Source:** https://www-cdn.anthropic.com/d7dd50dd1185f59be051b307150d877f2b82bd2c.pdf
 
 **Source type:** Technical report accompanying the public disclosure.
 
 **Relevance:** Provides additional technical and operational detail for reconstructing the reported campaign.
 
 **Strengths:**
-- More detailed account than a short public announcement.
+- Provides a more detailed account of the reported activity and technical workflow.
 - Supports investigation of agent orchestration, operational tasks and reported limitations.
 - Provides material for evidence-level analysis.
 
@@ -56,7 +56,7 @@ Each source is assessed against the following criteria:
 - Produced by the same organisation as S-001 and therefore is not independent corroboration.
 - Publicly available detail may not represent the complete incident record.
 
-**Assessment:** High relevance. Treat as an extension of S-001 rather than a separate independent confirmation.
+**Assessment:** High relevance. Treat as a technical companion to S-001 rather than a separate independent confirmation.
 
 ### S-003 — MITRE ATT&CK Campaign C0062
 
