@@ -22,7 +22,7 @@ These are MITRE's published mappings based on cited reporting, not independent o
 | T1087 | Account Discovery | Claude Code queried internal database user-account tables to enumerate accounts and identify high-privilege accounts. |
 | T1595.001 | Active Scanning: Scanning IP Blocks | Claude Code scanned infrastructure across IP ranges associated with target organisations. |
 | T1595.002 | Active Scanning: Vulnerability Scanning | Claude Code scanned target infrastructure for potential vulnerabilities, services and endpoints. |
-| T1119 | Automated Collection | Claude Code automatically collected and processed large volumes of data. |
+| T1119 | Automated Collection | Claude Code automatically collected and processed large volumes of data without human direction. |
 | T1584.004 | Compromise Infrastructure: Server | Dedicated penetration-testing servers accessible through MCP supported remote command execution, tool coordination and operational state across sessions. |
 | T1136.001 | Create Account: Local Account | Claude Code created a local backdoor account to maintain access. |
 | T1213.006 | Data from Information Repositories: Databases | Claude Code queried internal databases and systems for proprietary information, configurations and sensitive operational data. |
