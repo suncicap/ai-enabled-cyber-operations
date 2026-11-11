@@ -22,7 +22,13 @@ flowchart TD
 
     A --> B --> C --> D --> E --> F --> G --> H
 
-    B -.-> I\n    C -.-> I\n    D -.-> I\n    E -.-> I\n    F -.-> I\n    G -.-> I\n    H -.-> I
+    B -.-> I
+    C -.-> I
+    D -.-> I
+    E -.-> I
+    F -.-> I
+    G -.-> I
+    H -.-> I
 
     B -.-> J["AI agents use MCP-connected tools<br/>to execute tasks and assess results"]
     C -.-> J
