@@ -97,5 +97,6 @@ These are recommended defensive priorities, not proof that any individual contro
 ## 6. Sources
 
 1. MITRE ATT&CK. *Anthropic AI-orchestrated Campaign — C0062.* https://attack.mitre.org/campaigns/C0062/
-2. Anthropic. (2025, November 13). *Disrupting the first reported AI-orchestrated cyber espionage campaign.* https://www.anthropic.com/news/disrupting-AI-espionage
-3. Anthropic. *Mapping AI-enabled cyber threats.* https://www.anthropic.com/research/attack-navigator
+2. MITRE ATT&CK. *Direct Prompt Injection (T1699).* https://attack.mitre.org/techniques/T1699/ — includes the C0062 procedure example.
+3. Anthropic. (2025, November 13). *Disrupting the first reported AI-orchestrated cyber espionage campaign.* https://www.anthropic.com/news/disrupting-AI-espionage
+4. Anthropic. *Mapping AI-enabled cyber threats.* https://www.anthropic.com/research/attack-navigator
